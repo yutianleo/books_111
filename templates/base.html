@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/pintuer.css">
+    <link rel="stylesheet" href="/static/admin.css">
+    <script src="/static/jquery.js"></script>
+</head>
+<body style="background-color:#f2f9fd;">
+
+    {% include 'heater.html' %}
+
+    {% include 'left.html' %}
+        <script type="text/javascript">
+            $(function(){
+              $(".leftnav h2").click(function(){
+                  $(this).next().slideToggle(200);
+                  $(this).toggleClass("on");
+              })
+              $(".leftnav ul li a").click(function(){
+                    $("#a_leader_txt").text($(this).text());
+                    $(".leftnav ul li a").removeClass("on");
+                    $(this).addClass("on");
+              })
+            });
+        </script>
+    <ul class="bread">
+      <li><a href="{:U('Index/info')}" target="right" class="icon-home"> 首页</a></li>
+      <li><a href="#" id="a_leader_txt">网站设置</a></li>
+      <li><b>当前语言：</b><span style="color:red;">中文</span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a> </li>
+    </ul>
+    {% block body %}
+
+    {% endblock %}
+
+</body>
+</html>
