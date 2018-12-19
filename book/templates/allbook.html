@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有图书</title>
+</head>
+<body>
+    <table border="0px" cellspacing="0px" width="100%">
+{#    <h1 align="center" style="background-color: bisque">借书排行榜</h1>#}
+    <tr>
+        <th colspan="7"><font size="6" color="red">所有图书</font></th>
+    </tr>
+    <tr>
+        <th>图片</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>价钱</th>
+        <th>出版社</th>
+        <th>简介</th>
+    </tr>
+    {% for stu in allbookList %}
+        <tr>
+            <th><span><img src="{{ stu.img }}" width="110"></span></th>
+            <th width="15%">{{ stu.bk_name }}</th>
+            <th>{{ stu.authors.au_name }}</th>
+            <th>{{ stu.price }}</th>
+            <th>{{ stu.presses.pr_name}}</th>
+            <th width="150px">{{ stu.intro }}</th>
+        </tr>
+    {% endfor %}
+</body>
+</html>
