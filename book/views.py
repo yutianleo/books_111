@@ -223,3 +223,8 @@ def BackView(request):
 def MessageView(request):
     users = user.objects.all()
     return render(request, 'message.html', {'users': users})
+
+def search(request,num):
+    num = int(num)
+    book_list = MainprojectBooks.objects.filter(bk_id=num).all()
+    return render(request,'findbook.html',{'book_list':book_list})

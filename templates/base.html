@@ -30,6 +30,13 @@
       <li><a href="{:U('Index/info')}" target="right" class="icon-home"> 首页</a></li>
       <li><a href="#" id="a_leader_txt">网站设置</a></li>
       <li><b>当前语言：</b><span style="color:red;">中文</span>
+
+        <li>
+            <form method="get" action="/search/">
+                <input type="text" name="q" placeholder="搜索图书">&nbsp;&nbsp;
+                <input type="submit" value="搜索">
+            </form>
+        </li>
     </div>
     {% block body %}
 
