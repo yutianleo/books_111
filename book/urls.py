@@ -36,5 +36,6 @@ urlpatterns = [
     url(r'^wish_list/', views.wish_listview),
     # 关于我们 页面
     url(r'^about_our/', views.about_ourview),
+    url(r'^search/(\d+)',views.search)
 
 ]

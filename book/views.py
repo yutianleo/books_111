@@ -82,3 +82,9 @@ def wish_listview(request):
 # 关于我们页面
 def about_ourview(request):
     return render(request, 'about_our.html')
+
+
+def search(request,num):
+    num = int(num)
+    book_list = MainprojectBooks.objects.filter(bk_id=num).all()
+    return render(request,'findbook.html',{'book_list':book_list})

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+
+<div class="archives" style="overflow-y: scroll;height: 550px;width: 1530px;margin-left: 50px">
+    {% if query %}
+        {% for c_post in page.object_list %}
+            <br/><br/><br/>
+            <div>
+                 <h1 itemprop="name">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      <a class="archive-article-title" target="_self" href="/search/{{ c_post.object.bk_id }}">
+                          <img src="{{ c_post.object.img }}"  height="100px" >
+                      </a>
+                      <a class="archive-article-title" target="_self" href="/search/{{ c_post.object.bk_id }}">{{ c_post.object.bk_name }}</a>
+                 </h1>
+            </div>
+
+         {% empty %}
+            <div style="text-align: center;font-size: 30px">
+                对不起，你搜索的图书不存在！我们稍后会增加此书！
+            </div>
+
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+{% endblock %}
