@@ -155,7 +155,7 @@ def lifeview(request, num=1):
 
     page_list = range(start, end + 1)
     # 传入的数据：当前页码的书籍和页码表
-    return render(request, 'education.html', {'bookslist': page_books_list, 'page_list': page_list, 'num': num})
+    return render(request, 'life.html', {'bookslist': page_books_list, 'page_list': page_list, 'num': num})
 
 
 # 科技专区页面
@@ -224,7 +224,24 @@ def MessageView(request):
     users = user.objects.all()
     return render(request, 'message.html', {'users': users})
 
+
 def search(request,num):
     num = int(num)
     book_list = MainprojectBooks.objects.filter(bk_id=num).all()
     return render(request,'findbook.html',{'book_list':book_list})
+
+
+# 管理员登录页面
+def Administratorview(request):
+    return render(request, 'administrator_index.html')
+
+
+# 管理员登陆后的增加图书页面
+def add_booksview(request):
+    return render(request, 'add_books.html')
+
+
+# 管理员登陆后的修改个人信息的页面
+def change_administrator_infoview(request):
+    return render(request, 'change_administrator_info.html')
+
