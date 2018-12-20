@@ -10,8 +10,10 @@ urlpatterns = [
     url(r'^allbook$', views.allbookview),
     # 所有图书的翻页翻页的页面路由
     url(r'^page/(\d+)', views.allbookview),
-    # 登录页面页面
+    # （用户）登录页面页面
     url(r'^login/', views.loginview),
+    # （管理员）登录页面页面
+    url(r'^administrator/', views.Administratorview),
     # 个人信息页面
     url(r'^myinfo/', views.myinfoview),
     # 查找图书页面
@@ -30,19 +32,18 @@ urlpatterns = [
     url(r'^kids/', views.kidsview),
     url(r'^kids/(\d+)$', views.kidsview),
     # 教育专区域页面
-    url(r'^education/', views.educationview),
-    url(r'^education/(\d+)', views.educationview),
+    url(r'^education/$', views.educationview),
+    url(r'^education/(\d+)$', views.educationview),
     # 生活专区页面
-    url(r'^life/', views.lifeview),
-    url(r'^life/(\d+)', views.lifeview),
+    url(r'^life/$', views.lifeview),
+    url(r'^life/(\d+)$', views.lifeview),
     # 科技专区页面
-    url(r'^science/', views.scienceview),
-    url(r'^science/(\d+)', views.scienceview),
+    url(r'^science/$', views.scienceview),
+    url(r'^science/(\d+)$', views.scienceview),
     # 心愿单页面
-    url(r'^wish_list/', views.wish_listview),
+    url(r'^wish_list/$', views.wish_listview),
     # 关于我们 页面
-    url(r'^about_our/', views.about_ourview),
-
+    url(r'^about_our/$', views.about_ourview),
 
     # 注册页面
     url(r'^contain/$', views.Contain),
@@ -53,5 +54,9 @@ urlpatterns = [
     # 完善个人信息
     url(r'^message/$', views.MessageView),
 
+    # 管理员登录后的增加图书页面的路由
+    url(r'add_books/', views.add_booksview),
 
+    # 管理员登陆后修改个人信息页面的路由
+    url(r'change_administrator_info/', views.change_administrator_infoview),
 ]
