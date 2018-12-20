@@ -225,6 +225,12 @@ def MessageView(request):
     return render(request, 'message.html', {'users': users})
 
 
+def search(request,num):
+    num = int(num)
+    book_list = MainprojectBooks.objects.filter(bk_id=num).all()
+    return render(request,'findbook.html',{'book_list':book_list})
+
+
 # 管理员登录页面
 def Administratorview(request):
     return render(request, 'administrator_index.html')
@@ -238,3 +244,4 @@ def add_booksview(request):
 # 管理员登陆后的修改个人信息的页面
 def change_administrator_infoview(request):
     return render(request, 'change_administrator_info.html')
+

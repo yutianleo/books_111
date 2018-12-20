@@ -1,9 +1,11 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
+   # url(r'^search/', include('book.urls')),
     # 首页跳转的页面
     url(r'^$', views.indexview),
+
     # 排行榜的页面
     url(r'^borrowbooktop/', views.borrowbooktopview),
     # 所有图书的页面
@@ -43,8 +45,9 @@ urlpatterns = [
     # 心愿单页面
     url(r'^wish_list/$', views.wish_listview),
     # 关于我们 页面
+    url(r'^about_our/', views.about_ourview),
+    url(r'^search/(\d+)',views.search),
     url(r'^about_our/$', views.about_ourview),
-
     # 注册页面
     url(r'^contain/$', views.Contain),
     # 登录页面
@@ -56,7 +59,7 @@ urlpatterns = [
 
     # 管理员登录后的增加图书页面的路由
     url(r'add_books/', views.add_booksview),
-
     # 管理员登陆后修改个人信息页面的路由
     url(r'change_administrator_info/', views.change_administrator_infoview),
+
 ]
