@@ -144,3 +144,8 @@ class MainprojectUserregister(models.Model):
     class Meta:
         managed = False
         db_table = 'mainproject_userregister'
+
+
+class user(models.Model):
+    uname = models.CharField(max_length=30)
+    pwd = models.PositiveIntegerField()

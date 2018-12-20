@@ -1,0 +1,53 @@
+
+<style>
+    body{
+        background-image: url('/static/imgs/f9dcd100baa1cd1143a4cd0bb312c8fcc3ce2d8e.jpg');
+    }
+</style>
+
+<body>
+{% block body %}
+    <div class="col-md-12" align="center" style="line-height: 50px;margin-top: 100px">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">姓名：</label>
+
+            <input type="text" class="form-control" placeholder="请输入你的姓名">
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">电话：</label>
+
+            <input type="text" class="form-control" placeholder="请输入你的电话">
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">邮箱：</label>
+
+            <input type="text" class="form-control" placeholder="请输入你的邮箱">
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">身份证：</label>
+
+            <input type="text" class="form-control" placeholder="请输入你的身份证">
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">性别：</label>
+
+            <label class="radio-inline">
+                <input type="radio" value="男" name="rad11309" checked="">男</label>
+            <label class="radio-inline">
+                <input type="radio" name="rad11309" value="女">女</label>
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">职位：</label>
+
+            <input type="text" class="form-control" placeholder="请输入你的职位">
+
+    </div>
+    <input type="submit" value="确认">
+</div>
+{% endblock %}
+</body>

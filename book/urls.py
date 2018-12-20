@@ -8,6 +8,8 @@ urlpatterns = [
     url(r'^borrowbooktop/', views.borrowbooktopview),
     # 所有图书的页面
     url(r'^allbook$', views.allbookview),
+    # 所有图书的翻页翻页的页面路由
+    url(r'^page/(\d+)', views.allbookview),
     # 登录页面页面
     url(r'^login/', views.loginview),
     # 个人信息页面
@@ -18,7 +20,7 @@ urlpatterns = [
     url(r'^borrowbook/', views.borrowbookview),
     # 还书页面
     url(r'^returnbook/', views.returnbookview),
-    # 修改个人信息页面
+    # 完善个人信息页面
     url(r'^changemyinfo/', views.changemyinfoview),
     # 逾期惩罚页面
     url(r'^punish/', views.punishview),
@@ -26,16 +28,31 @@ urlpatterns = [
     url(r'^info.html/', views.allbookview),
     # 儿童专区页面
     url(r'^kids/', views.kidsview),
+    url(r'^kids/(\d+)$', views.kidsview),
     # 教育专区域页面
     url(r'^education/', views.educationview),
+    url(r'^education/(\d+)', views.educationview),
     # 生活专区页面
     url(r'^life/', views.lifeview),
+    url(r'^life/(\d+)', views.lifeview),
     # 科技专区页面
     url(r'^science/', views.scienceview),
+    url(r'^science/(\d+)', views.scienceview),
     # 心愿单页面
     url(r'^wish_list/', views.wish_listview),
     # 关于我们 页面
     url(r'^about_our/', views.about_ourview),
     url(r'^search/(\d+)',views.search)
+
+
+    # 注册页面
+    url(r'^contain/$', views.Contain),
+    # 登录页面
+    url(r'^index/$', views.index),
+    # 忘记密码 修改密码
+    url(r'^back/$', views.BackView),
+    # 完善个人信息
+    url(r'^message/$', views.MessageView),
+
 
 ]
