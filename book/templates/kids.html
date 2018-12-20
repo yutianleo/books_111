@@ -3,8 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+         /*解决页面浮动后的塌陷问题*/
+        .clearfix{
+                zoom:1;
+        }
+        .clearfix:after{
+                content: "";display: block;visibility: hidden;line-height: 0;clear: both;
+        }
+
+        body,div{
+            margin:0 auto;
+
+        }
+
+
+        div{
+            border: 1px solid white;
+            margin-left: 160px;
+            width:1000px;
+            text-align: center;
+
+        }
+
+
+        ul{
+            list-style-type: none;
+            display: inline-block;
+
+        }
+
+
+
+        #header li{
+            float: left;
+            margin-left:10px;
+            font-size:16px;
+            font-family: '微软雅黑';
+            color: #666666;
+
+
+        }
+        #header li:hover{
+            cursor: pointer;
+            background:blue;
+            color: white;
+        }
+
+
+
+
+        #content li{
+            float: left;
+            display: inline;
+            margin-right:50px;
+            margin-top: 20px;
+            text-align: left;
+            height:225px;
+            overflow: hidden;
+            padding-top:10px;
+            padding-bottom:40px;
+
+        }
+{##}
+{#        #a_img:link {#}
+{#            color: #FF0000;#}
+{#        }#}
+{#        a:visited{#}
+{#            color: #00FF00;#}
+{#        }#}
+{#         #a_img:hover{#}
+{#            color: #FF00FF;#}
+{#        }#}
+
+        #content h1{
+            font-size:14px;
+            margin:0;
+
+
+        }
+
+        .tip{
+            display: block;
+            font-size:12px;
+        }
+
+       .h1,.tip{
+            width:110px;
+           text-align: center;
+        }
+
+        #content ul{
+            /*去除ul的内边距和外边距*/
+            margin:0;
+            padding:0;
+
+        }
+
+    </style>
 </head>
 <body>
-儿童专区
+
+    <div id="content" >
+    <font size="6" color="red">儿童专区图书</font>
+        <ul class="clearfix">
+            {% for books in bookslist %}
+                <li >
+                    <img src="{{ books.img }}" width="150" height="180">
+
+                    <a href="#" title="{{ books.bk_name }}"><span class="tip"> {{ books.bk_name|truncatechars:'8' }}</span></a>
+
+                    <span class="tip" > 作者：{{ books.authors.au_name|truncatechars:'6' }}</span>
+
+                    <span class="tip" title="{{ books.presses.pr_name}}"> 出版社：{{ books.presses.pr_name|truncatechars:'6' }}</span>
+
+                    <span class="tip" title="{{ books.intro }}"> 简介：{{ books.intro|truncatechars:'20' }}</span>
+                </li>
+			{% endfor %}
+        </ul>
+    </div>
+
+
+        <nav id="page-nav" style="clear:both;text-align: center;">
+
+        {% if bookslist.has_previous %}
+            <a class="extend prev" rel="next" href="/kids/{{ bookslist.previous_page_number }}">上一页<<</a>
+        {% endif %}
+
+        {% for page in page_list %}
+            {% if page == num %}
+                <span class="page-number current">{{ page }}</span>
+            {% else %}
+
+                    <a class="page-number" href="/kids/{{ page }}">{{ page }}</a>
+
+            {% endif %}
+        {% endfor %}
+
+        {% if bookslist.has_next %}
+            <a class="extend next" rel="next" href="/kids/{{ bookslist.next_page_number }}">下一页>></a>
+        {% endif %}
+    </nav>
+
 </body>
 </html>
