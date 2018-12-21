@@ -82,15 +82,15 @@ def punishview(request):
 
 # 儿童专区页面
 def kidsview(request, num=1):
-    num = int(num)
     booktype = MainprojectBooktype.objects.get(bt_id=1)
     bookslist = MainprojectBooks.objects.filter(bt_type_id=booktype).all()
+    num = int(num)
     # 页码展示信息数量
     page_obj = Paginator(bookslist, 10)
     # 获取当前页码
     page_books_list = page_obj.page(num)
     # 页面中的所有页码数（页码列表）
-    start = num - int(math.ceil(10 / 2))
+    start = num - int(math.ceil(10.0 / 2))
     if start < 1:
         start = 1
     end = start + 9
@@ -225,10 +225,10 @@ def MessageView(request):
     return render(request, 'message.html', {'users': users})
 
 
-def search(request,num):
+def search(request, num):
     num = int(num)
     book_list = MainprojectBooks.objects.filter(bk_id=num).all()
-    return render(request,'findbook.html',{'book_list':book_list})
+    return render(request, 'findbook.html', {'book_list': book_list})
 
 
 # 管理员登录页面
@@ -245,3 +245,8 @@ def add_booksview(request):
 def change_administrator_infoview(request):
     return render(request, 'change_administrator_info.html')
 
+
+def book(request, num):
+    num = int(num)
+    book_list = MainprojectBooks.objects.filter(bk_id=num).all()
+    return render(request, 'book.html', {'book_list': book_list})
