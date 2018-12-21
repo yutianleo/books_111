@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="archives" style="overflow-y: scroll;height: 635px;width: 1200px;" >
+    <table border="0px" cellspacing="0" width="1000px" style="margin-left: 100px;text-align: center">
+        <tr>
+            <th style="font-size: 20px;margin: 10px">图片</th>&emsp;&emsp;
+            <th style="font-size: 20px;margin: 20px">书名</th>&emsp;&emsp;
+            <th style="font-size: 20px;margin: 20px">简介</th>&emsp;&emsp;
+            <th style="font-size: 20px;margin: 20px">作者</th>&emsp;&emsp;
+            <th style="font-size: 20px;margin: 20px">类型</th>&emsp;&emsp;
+            <th style="font-size: 20px;margin: 20px">出版社</th>&emsp;&emsp;
+            <th style="font-size: 20px;margin: 20px">价格</th>
+        </tr>
+        {% for book in book_list %}
+            <tr>
+                <td><img src="{{ book.img }}" width="150" height="180"></td>
+                <td style="font-size: 17px;vertical-align:middle">{{ book.bk_name }}</td>
+                <td style="width: 150px;font-size: 17px;vertical-align:middle">{{ book.intro }}</td>
+                <td style="font-size: 17px;vertical-align:middle">{{ book.authors.au_name }}</td>
+                <td style="font-size: 17px;vertical-align:middle">{{ book.bt_type.bt_name }}</td>
+                <td style="font-size: 17px;vertical-align:middle">{{ book.presses.pr_name }}</td>
+                <td style="font-size: 17px;vertical-align:middle">{{ book.price }}元</td>
+                <td><input type="button" value="返回上一页" onclick="window.history.back()"></td>
+            </tr>
+        {% endfor %}
+</body>
+</html>

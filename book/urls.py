@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^punish/$', views.punishview),
     # 所有图书页面（一刷新跳转的就是这个，前面的路由是info.html 没找到这个路由在哪，反正如果想改变一刷新页面就出来的东西，就在这个歌页面修改就OK了）
     url(r'^info.html/$', views.allbookview),
+    url(r'^book/(\d+)$', views.book),
     # 儿童专区页面
     url(r'^kids/$', views.kidsview),
     url(r'^kids/(\d+)$', views.kidsview),
@@ -39,10 +40,8 @@ urlpatterns = [
     # 心愿单页面
     url(r'^wish_list/$', views.wish_listview),
     # 关于我们 页面
-    url(r'^about_our/', views.about_ourview),
-
-    url(r'^search/(\d+)',views.search),
-
+    url(r'^about_our/$', views.about_ourview),
+    url(r'^search/(\d+)$',views.search),
     url(r'^about_our/$', views.about_ourview),
     # 注册页面
     url(r'^contain/$', views.Contain),
@@ -52,9 +51,9 @@ urlpatterns = [
     url(r'^message/$', views.MessageView),
 
     # 管理员登录后的增加图书页面的路由
-    url(r'add_books/', views.add_booksview),
+    url(r'add_books/$', views.add_booksview),
     # 管理员登陆后修改个人信息页面的路由
-    url(r'change_administrator_info/', views.change_administrator_infoview),
+    url(r'change_administrator_info/$', views.change_administrator_infoview),
     url(r'^message/$', views.PermesView), #完善信息
     url(r'^borrowbook/$', views.Borrow_BookView), #借书
     url(r'^index/borrow/$', views.BorrowView), #借书成功

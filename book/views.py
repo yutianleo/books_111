@@ -11,6 +11,7 @@ def loginview(request):
     if request.method == 'GET':
         return render(request, 'login.html')
 
+
 # 所有图书的页面
 def allbookview(request, num=1):
     # allbookList = MainprojectBooks.objects.all()
@@ -19,7 +20,7 @@ def allbookview(request, num=1):
     # 查询所有书籍信息按id来排序
     bookslist = MainprojectBooks.objects.all()
     # 页码展示信息数量
-    page_obj = Paginator(bookslist,10)
+    page_obj = Paginator(bookslist, 10)
     # 获取当前页码
     page_books_list = page_obj.page(num)
     # 页面中的所有页码数（页码列表）
@@ -50,11 +51,8 @@ def indexview(request):
 
 # 排行榜的页面
 def borrowbooktopview(request):
-
     stuList = MainprojectBooks.objects.all()
     return render(request, 'phb.html', {'stuList': stuList})
-
-
 
 
 # 查找图书页面
@@ -83,7 +81,7 @@ def kidsview(request, num=1):
     booktype = MainprojectBooktype.objects.get(bt_id=1)
     bookslist = MainprojectBooks.objects.filter(bt_type_id=booktype).all()
     # 页码展示信息数量
-    page_obj = Paginator(bookslist,10)
+    page_obj = Paginator(bookslist, 10)
     # 获取当前页码
     page_books_list = page_obj.page(num)
     # 页面中的所有页码数（页码列表）
@@ -109,7 +107,7 @@ def educationview(request, num=1):
     bookslist = MainprojectBooks.objects.filter(bt_type_id=booktype).all()
     num = int(num)
     # 页码展示信息数量
-    page_obj = Paginator(bookslist,10)
+    page_obj = Paginator(bookslist, 10)
     # 获取当前页码
     page_books_list = page_obj.page(num)
     # 页面中的所有页码数（页码列表）
@@ -233,6 +231,11 @@ def add_booksview(request):
 def change_administrator_infoview(request):
     return render(request, 'change_administrator_info.html')
 
+
+def book(request, num):
+    num = int(num)
+    book_list = MainprojectBooks.objects.filter(bk_id=num).all()
+    return render(request, 'book.html', {'book_list': book_list})
 
 
 def Borrow_BookView(request):
