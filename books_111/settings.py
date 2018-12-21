@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'book',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,15 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static', 'js'),
     os.path.join(BASE_DIR, 'static', 'images'),
 ]
+
+# 指定生成的索引路径
+HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'book.whoosh_zh_backend.WhooshEngine',
+            'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+        },
+    }
+
+
+# 实时生成索引文件
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

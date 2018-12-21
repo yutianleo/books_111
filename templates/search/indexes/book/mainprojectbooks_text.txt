@@ -1,0 +1,2 @@
+{{object.bk_name}}
+{{object.intro}}
