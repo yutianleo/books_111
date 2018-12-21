@@ -1,33 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec2f87fe-4ca2-44f3-b592-3a2b88275e5e" name="Default" comment="Merge branch 'yutianleo-master'&#10;&#10;# Conflicts:&#10;#&#9;book/__pycache__/urls.cpython-36.pyc&#10;#&#9;book/__pycache__/views.cpython-36.pyc">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/book/mycontext.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/book/templates/back.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/book/templates/books.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/book/templates/borrow_book.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/book/templates/showinfo.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/book/migrations/0002_user.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/book/templates/myinfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/book/templates/returnbook.html" afterPath="" />
+    <list default="true" id="ec2f87fe-4ca2-44f3-b592-3a2b88275e5e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/book/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book/models.py" afterPath="$PROJECT_DIR$/book/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book/templates/allbook.html" afterPath="$PROJECT_DIR$/book/templates/allbook.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book/templates/education.html" afterPath="$PROJECT_DIR$/book/templates/education.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book/templates/kids.html" afterPath="$PROJECT_DIR$/book/templates/kids.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book/templates/life.html" afterPath="$PROJECT_DIR$/book/templates/life.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book/templates/science.html" afterPath="$PROJECT_DIR$/book/templates/science.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book/urls.py" afterPath="$PROJECT_DIR$/book/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/book/views.py" afterPath="$PROJECT_DIR$/book/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/books_111/settings.py" afterPath="$PROJECT_DIR$/books_111/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/books_111/urls.py" afterPath="$PROJECT_DIR$/books_111/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/heater.html" afterPath="$PROJECT_DIR$/templates/heater.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/left.html" afterPath="$PROJECT_DIR$/templates/left.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/search/search.html" afterPath="$PROJECT_DIR$/templates/search/search.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/book/templates/info.html" afterPath="$PROJECT_DIR$/book/templates/phb.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -240,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545291363534</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Merge branch 'yutianleo-master'&#10;&#10;# Conflicts:&#10;#&#9;book/__pycache__/urls.cpython-36.pyc&#10;#&#9;book/__pycache__/views.cpython-36.pyc">
+      <created>1545363169276</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1545363169276</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
