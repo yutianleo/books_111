@@ -105,7 +105,7 @@
 <body>
 
     <div id="content" >
-    <font size="6" color="red">教育专区图书</font>
+    <font size="6" color="red">教育专区图书</font><br>
         <ul class="clearfix">
             {% for books in bookslist %}
                 <li >
@@ -127,7 +127,7 @@
         <nav id="page-nav" style="clear:both;text-align: center;">
 
         {% if bookslist.has_previous %}
-            <a class="extend prev" rel="next" href="/page/{{ bookslist.previous_page_number }}">上一页<<</a>
+            <a class="extend prev" rel="next" href="/search/page/{{ bookslist.previous_page_number }}">上一页<<</a>
         {% endif %}
 
         {% for page in page_list %}
@@ -135,13 +135,13 @@
                 <span class="page-number current">{{ page }}</span>
             {% else %}
 
-                    <a class="page-number" href="/education/{{ page }}">{{ page }}</a>
+                    <a class="page-number" href="/search/education/{{ page }}">{{ page }}</a>
 
             {% endif %}
         {% endfor %}
 
         {% if bookslist.has_next %}
-            <a class="extend next" rel="next" href="/education/{{ bookslist.next_page_number }}">下一页>></a>
+            <a class="extend next" rel="next" href="/search/education/{{ bookslist.next_page_number }}">下一页>></a>
         {% endif %}
     </nav>
 

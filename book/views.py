@@ -11,7 +11,6 @@ def loginview(request):
     if request.method == 'GET':
         return render(request, 'login.html')
 
-
 # 所有图书的页面
 def allbookview(request, num=1):
     # allbookList = MainprojectBooks.objects.all()
@@ -20,7 +19,7 @@ def allbookview(request, num=1):
     # 查询所有书籍信息按id来排序
     bookslist = MainprojectBooks.objects.all()
     # 页码展示信息数量
-    page_obj = Paginator(bookslist, 10)
+    page_obj = Paginator(bookslist,10)
     # 获取当前页码
     page_books_list = page_obj.page(num)
     # 页面中的所有页码数（页码列表）
@@ -41,23 +40,21 @@ def allbookview(request, num=1):
 
 
 def indexview(request):
-    return render(request, 'index.html')
+    uname = request.POST.get('lo_user', '')
+    pwd = request.POST.get('lo_pwd', '')
+    a = user.objects.filter(uname=uname, pwd=pwd)
+    if a:
+        request.session['login_uname'] = uname
+        return render(request, 'index.html')
 
 
 # 排行榜的页面
 def borrowbooktopview(request):
+
     stuList = MainprojectBooks.objects.all()
-    return render(request, 'info.html', {'stuList': stuList})
+    return render(request, 'phb.html', {'stuList': stuList})
 
 
-# 还书页面
-def returnbookview(request):
-    return render(request, 'returnbook.html')
-
-
-# 个人信息页面
-def myinfoview(request):
-    return render(request, 'myinfo.html')
 
 
 # 查找图书页面
@@ -86,7 +83,7 @@ def kidsview(request, num=1):
     booktype = MainprojectBooktype.objects.get(bt_id=1)
     bookslist = MainprojectBooks.objects.filter(bt_type_id=booktype).all()
     # 页码展示信息数量
-    page_obj = Paginator(bookslist, 10)
+    page_obj = Paginator(bookslist,10)
     # 获取当前页码
     page_books_list = page_obj.page(num)
     # 页面中的所有页码数（页码列表）
@@ -112,7 +109,7 @@ def educationview(request, num=1):
     bookslist = MainprojectBooks.objects.filter(bt_type_id=booktype).all()
     num = int(num)
     # 页码展示信息数量
-    page_obj = Paginator(bookslist, 10)
+    page_obj = Paginator(bookslist,10)
     # 获取当前页码
     page_books_list = page_obj.page(num)
     # 页面中的所有页码数（页码列表）
@@ -204,15 +201,6 @@ def Contain(request):
         user.objects.create(uname=uname, pwd=pwd)
         return HttpResponseRedirect('/login/')
 
-
-def index(request):
-    uname = request.POST.get('lo_user', '')
-    pwd = request.POST.get('lo_pwd', '')
-    a = user.objects.filter(uname=uname, pwd=pwd)
-    if a:
-        return render(request, 'index.html')
-
-
 def BackView(request):
     uname = request.POST.get('for_name', '')
     pwd = request.POST.get('for_pwd', '')
@@ -244,4 +232,57 @@ def add_booksview(request):
 # 管理员登陆后的修改个人信息的页面
 def change_administrator_infoview(request):
     return render(request, 'change_administrator_info.html')
+
+
+
+def Borrow_BookView(request):
+    allbookList = MainprojectBooks.objects.all()
+    return render(request,'borrow_book.html',{'allbookList': allbookList})
+
+
+
+def BorrowView(request):
+    uname=request.POST.get('uname','')  #借书人名字
+    bookname=request.POST.get('bookname','') #书名
+    bknum=request.POST.get('bknum','') #书的编号
+    bbnum=request.POST.get('bbnum','') # 书的数量
+    bbdate=request.POST.get('bbdate','') #借书日期
+    brdate=request.POST.get('brdate','') # 还书日期
+    bkname=MainprojectBooks.objects.get(bk_name=bookname)
+    person=MainprojectBorrowPersons.objects.create(bp_name=uname)
+    MainprojectBorrowBooks.objects.create(bb_id=bknum,bb_bdate=bbdate,bb_rdate=brdate,bk_name=bkname,bp_name=person)
+    return HttpResponse(u"借阅成功")
+
+def PermesView(request):
+    uname=request.POST.get('uname','')
+    phone=request.POST.get('phone','')
+    postbox=request.POST.get('postbox','')
+    identify=request.POST.get('identify','')
+    sex=request.POST.get('sex','')
+    job=request.POST.get('job','')
+    profession=MainprojectProfessions.objects.create(p_name=job)
+    profession.save()
+    MainprojectUserregister.objects.create(uname=uname,unumber=identify,uphone=phone,bp_professions=profession,postbox=postbox,sex=sex)
+    return HttpResponse(u"完善信息成功")
+
+
+def backbookView(request):
+    uname=request.POST.get('uname','')
+    if uname == '':
+        return HttpResponse('你没有借任何书籍')
+    person=MainprojectBorrowPersons.objects.get(bp_name=uname)
+    books=MainprojectBorrowBooks.objects.get(bp_name=person)
+    bookname=books.bk_name.bk_name
+
+    RetBook=MainprojectBooks.objects.get(bk_name=bookname)
+    return render(request,'back.html',{"books":books,"RetBook":RetBook})
+
+
+def successView(request):
+    return HttpResponse(u'归还成功')
+
+
+def showinfoView(request):
+    mes=MainprojectUserregister.objects.filter(uname='谷茂鑫')
+    return render(request,'showinfo.html',{'meses':mes})
 
