@@ -45,6 +45,23 @@ class MainprojectAuthors(models.Model):
         managed = False
         db_table = 'mainproject_authors'
 
+# 书的类型类
+class MainprojectBooktype(models.Model):
+    bt_id = models.AutoField(primary_key=True)
+    bt_name = models.CharField(max_length=30)
+
+    class Meta:
+        managed = False
+        db_table = 'mainproject_booktype'
+
+# 出版社类
+class MainprojectPress(models.Model):
+    pr_id = models.AutoField(primary_key=True)
+    pr_name = models.CharField(max_length=30)
+
+    class Meta:
+        managed = False
+        db_table = 'mainproject_press'
 
 # 书类
 class MainprojectBooks(models.Model):
@@ -56,40 +73,13 @@ class MainprojectBooks(models.Model):
     # 和作者的关系
     authors = models.ForeignKey(MainprojectAuthors, models.DO_NOTHING)
     # 和类型的关系
-    bt_type = models.ForeignKey('MainprojectBooktype', models.DO_NOTHING)
+    bt_type = models.ForeignKey(MainprojectBooktype, models.DO_NOTHING)
     # 和出版社的关系
-    presses = models.ForeignKey('MainprojectPress', models.DO_NOTHING)
+    presses = models.ForeignKey(MainprojectPress, models.DO_NOTHING)
 
     class Meta:
         managed = False
         db_table = 'mainproject_books'
-
-
-# 书的类型类
-class MainprojectBooktype(models.Model):
-    bt_id = models.AutoField(primary_key=True)
-    bt_name = models.CharField(max_length=30)
-
-    class Meta:
-        managed = False
-        db_table = 'mainproject_booktype'
-
-
-# 借书类
-class MainprojectBorrowBooks(models.Model):
-    bb_id = models.AutoField(primary_key=True)
-    bb_bdate = models.DateField()
-    bb_rdate = models.DateField()
-    num = models.PositiveIntegerField()
-    # 和书的信息的关系
-    bk_name = models.ForeignKey(MainprojectBooks, models.DO_NOTHING)
-    # 和借书人的关系
-    bp_name = models.ForeignKey('MainprojectBorrowPersons', models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'mainproject_borrow_books'
-
 
 # 借书人类
 class MainprojectBorrowPersons(models.Model):
@@ -99,6 +89,23 @@ class MainprojectBorrowPersons(models.Model):
     class Meta:
         managed = False
         db_table = 'mainproject_borrow_persons'
+
+
+# 借书类
+class MainprojectBorrowBooks(models.Model):
+    bb_id = models.AutoField(primary_key=True)
+    bb_bdate = models.DateField()
+    bb_rdate = models.DateField()
+    #num = models.PositiveIntegerField()
+    # 和书的信息的关系
+    bk_name = models.ForeignKey(MainprojectBooks, models.DO_NOTHING)
+    # 和借书人的关系
+    bp_name = models.ForeignKey(MainprojectBorrowPersons, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'mainproject_borrow_books'
+
 
 
 # 借书人 和 书 的中间表
@@ -112,14 +119,7 @@ class MainprojectBorrowPersonsBpBooks(models.Model):
         unique_together = (('borrow_persons', 'books'),)
 
 
-# 出版社类
-class MainprojectPress(models.Model):
-    pr_id = models.AutoField(primary_key=True)
-    pr_name = models.CharField(max_length=30)
 
-    class Meta:
-        managed = False
-        db_table = 'mainproject_press'
 
 
 # 职业类（注册用）
