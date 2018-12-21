@@ -1,0 +1,40 @@
+
+<style>
+    body{
+        background-image: url('/static/imgs/f9dcd100baa1cd1143a4cd0bb312c8fcc3ce2d8e.jpg');
+    }
+</style>
+
+<body>
+{% block body %}
+    {% for mes in meses %}
+    <table align="center" style="margin-top: 100px" border="1px" cellspacing="0px" width="300px">
+        <tr style="height: 50px">
+            <th>姓名</th>
+            <td style="text-align: center">{{ mes.uname }}</td>
+        </tr>
+    <tr style="height: 50px">
+            <th>电话</th>
+            <td style="text-align: center">{{ mes.uphone }}</td>
+        </tr>
+    <tr style="height: 50px">
+            <th>邮箱</th>
+            <td style="text-align: center">{{ mes.postbox }}</td>
+        </tr>
+    <tr style="height: 50px">
+            <th>身份证</th>
+            <td style="text-align: center">{{ mes.unumber }}</td>
+        </tr>
+    <tr style="height: 50px">
+            <th>性别</th>
+            <td style="text-align: center">{{ mes.usex }}</td>
+        </tr>
+    <tr style="height: 50px">
+            <th>职位</th>
+            <td style="text-align: center">{{ mes.bp_professions.p_name }}</td>
+        </tr>
+    </table>
+
+    {% endfor %}
+{% endblock %}
+</body>

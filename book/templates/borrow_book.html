@@ -1,0 +1,54 @@
+<style>
+    body{
+        background-image: url('/static/imgs/f9dcd100baa1cd1143a4cd0bb312c8fcc3ce2d8e.jpg');
+    }
+</style>
+
+<body>
+{% block body %}
+    <form method="post" action="/index/borrow/">
+    {% csrf_token %}
+    <div class="col-md-12" align="center" style="line-height: 50px;margin-top: 100px">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">姓名：</label>
+
+            <input type="text" class="form-control" name="uname" placeholder="请输入你的姓名">
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">书名：</label>
+
+            <input type="text" class="form-control" name="bookname" placeholder="请输入借阅书籍名称">
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">编号：</label>
+
+            <input type="text" class="form-control" name="bknum" placeholder="请输入书籍编号"/>
+
+    </div>
+        <div class="form-group">
+        <label class="col-sm-2 control-label">数量：</label>
+
+            <input type="text" class="form-control" name="bbnum" placeholder="请输入借阅数量"/>
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">借阅日期：</label>
+
+            <input type="date" class="form-control" name="bbdate" placeholder="请输入借阅日期"/>
+
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">归还日期：</label>
+
+            <input type="date" class="form-control" name="brdate" value="日期">
+
+    </div>
+  <input type="submit" value="借阅">
+</div>
+    </form>
+{% endblock %}
+</body>
+

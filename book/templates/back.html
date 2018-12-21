@@ -1,0 +1,25 @@
+
+<body>
+{% block body %}
+    <form method="post" action="/index/success/">
+    <table>
+        <tr>
+            <th width="100px"><span><img src="{{ RetBook.img }}" width="110"></span></th>
+            <th width="200px" width="100px">{{ RetBook.bk_name }}</th>
+            <th width="150px">{{ RetBook.authors.au_name }}</th>
+{#            <th>{{ RetBook.price }}</th>#}
+            <th width="150px">{{ RetBook.presses.pr_name}}</th>
+            <th width="200px">{{ RetBook.intro }}</th>
+            <th width="80px">{{ books.num }}</th>
+            <th><input type="submit" value="归还"></th>
+        </tr>
+    </table>
+
+
+
+
+
+    </form>
+{% endblock %}
+
+</body>

@@ -32,15 +32,16 @@
       <li><b>当前语言：</b><span style="color:red;">中文</span>
 
         <li>
-            <form method="get" action="/search/">
-                <input type="text" name="q" placeholder="搜索图书">&nbsp;&nbsp;
-                <input type="submit" value="搜索">
+            <form method="get" action="/index/search/">
+                <input type="text" name="q" placeholder="搜索图书" height="30px">&nbsp;&nbsp;
+                <input type="submit" value="搜索" height="30px">
             </form>
         </li>
+        <span style="margin-left:650px;font-size: 20px;color: darkred;font-family: 楷体">当前用户为:&nbsp;{{ login_uname }}</span>
     </div>
     {% block body %}
 
     {% endblock %}
 
-</body>
+</body
 </html>

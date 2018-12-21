@@ -1,3 +1,4 @@
+
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
@@ -79,6 +80,7 @@ class MainprojectBorrowBooks(models.Model):
     bb_id = models.AutoField(primary_key=True)
     bb_bdate = models.DateField()
     bb_rdate = models.DateField()
+    num = models.PositiveIntegerField()
     # 和书的信息的关系
     bk_name = models.ForeignKey(MainprojectBooks, models.DO_NOTHING)
     # 和借书人的关系
@@ -149,3 +151,4 @@ class MainprojectUserregister(models.Model):
 class user(models.Model):
     uname = models.CharField(max_length=30)
     pwd = models.PositiveIntegerField()
+

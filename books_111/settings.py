@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'book.mycontext.getData'
             ],
         },
     },
@@ -78,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'books',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'w123456',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

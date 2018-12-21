@@ -18,9 +18,10 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('book.urls')),
-    url(r'^search/', include('haystack.urls')),
+   # url(r'^', include('book.urls')),
 
     url(r'^index/', include('book.urls')),
+    #url(r'^stu/', include('book.urls')),
+    #url(r'^login/', include('book.urls')),
 
 ]

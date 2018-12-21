@@ -105,14 +105,13 @@
 <body>
 
     <div id="content" >
-
-    <font size="6" color="red">教育专区图书</font><br>
+    <font size="6" color="red">教育专区图书</font>
         <ul class="clearfix">
             {% for books in bookslist %}
                 <li >
-                    <a href="/book/{{ books.bk_id }}"><img src="{{ books.img }}" width="150" height="180"></a>
+                    <a href="/index/book/{{ books.bk_id }}"><img src="{{ books.img }}" width="150" height="180"></a>
 
-                    <a href="/book/{{ books.bk_id }}" title="{{ books.bk_name }}"><span class="tip"> {{ books.bk_name|truncatechars:'8' }}</span></a>
+                    <a href="/index/book/{{ books.bk_id }}" title="{{ books.bk_name }}"><span class="tip"> {{ books.bk_name|truncatechars:'8' }}</span></a>
 
                     <span class="tip" > 作者：{{ books.authors.au_name|truncatechars:'6' }}</span>
 
@@ -136,13 +135,13 @@
                 <span class="page-number current">{{ page }}</span>
             {% else %}
 
-                    <a class="page-number" href="/education/{{ page }}">{{ page }}</a>
+                    <a class="page-number" href="/search/education/{{ page }}">{{ page }}</a>
 
             {% endif %}
         {% endfor %}
 
         {% if bookslist.has_next %}
-            <a class="extend next" rel="next" href="/education/{{ bookslist.next_page_number }}">下一页>></a>
+            <a class="extend next" rel="next" href="/search/education/{{ bookslist.next_page_number }}">下一页>></a>
         {% endif %}
     </nav>
 

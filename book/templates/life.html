@@ -105,13 +105,13 @@
 <body>
 
     <div id="content" >
-    <font size="6" color="red">生活专区图书</font>
+    <font size="6" color="red">生活专区图书</font><br>
         <ul class="clearfix">
             {% for books in bookslist %}
                 <li >
-                    <a href="/book/{{ books.bk_id }}"><img src="{{ books.img }}" width="150" height="180"></a>
+                    <a href="/index/book/{{ books.bk_id }}"><img src="{{ books.img }}" width="150" height="180"></a>
 
-                    <a href="/book/{{ books.bk_id }}" title="{{ books.bk_name }}"><span class="tip"> {{ books.bk_name|truncatechars:'8' }}</span></a>
+                    <a href="/index/book/{{ books.bk_id }}" title="{{ books.bk_name }}"><span class="tip"> {{ books.bk_name|truncatechars:'8' }}</span></a>
 
                     <span class="tip" > 作者：{{ books.authors.au_name|truncatechars:'6' }}</span>
 
