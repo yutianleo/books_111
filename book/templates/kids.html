@@ -127,7 +127,7 @@
         <nav id="page-nav" style="clear:both;text-align: center;">
 
         {% if bookslist.has_previous %}
-            <a class="extend prev" rel="next" href="/search/kids/{{ bookslist.previous_page_number }}">上一页<<</a>
+            <a class="extend prev" rel="next" href="/index/kids/{{ bookslist.previous_page_number }}">上一页<<</a>
         {% endif %}
 
         {% for page in page_list %}
@@ -135,13 +135,13 @@
                 <span class="page-number current">{{ page }}</span>
             {% else %}
 
-                    <a class="page-number" href="/kids/{{ page }}">{{ page }}</a>
+                    <a class="page-number" href="/index/kids/{{ page }}">{{ page }}</a>
 
             {% endif %}
         {% endfor %}
 
         {% if bookslist.has_next %}
-            <a class="extend next" rel="next" href="/search/kids/{{ bookslist.next_page_number }}">下一页>></a>
+            <a class="extend next" rel="next" href="/index/kids/{{ bookslist.next_page_number }}">下一页>></a>
         {% endif %}
     </nav>
 

@@ -56,7 +56,7 @@ urlpatterns = [
     url(r'change_administrator_info/$', views.change_administrator_infoview),
     url(r'^message/$', views.PermesView), #完善信息
     url(r'^borrowbook/$', views.Borrow_BookView), #借书
-    url(r'^index/borrow/$', views.BorrowView), #借书成功
+    url(r'^borrow/$', views.BorrowView), #借书成功
     #url(r'^index/returnbook/$', views.Return_BookView), #
     url(r'^returnbook/$', views.backbookView),
     url(r'^success/$', views.successView), #

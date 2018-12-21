@@ -197,13 +197,13 @@ def Contain(request):
         return HttpResponse(u'该用户已经注册')
     else:
         user.objects.create(uname=uname, pwd=pwd)
-        return HttpResponseRedirect('/login/')
+        return HttpResponseRedirect('/index/login/')
 
 def BackView(request):
     uname = request.POST.get('for_name', '')
     pwd = request.POST.get('for_pwd', '')
     user.objects.filter(uname=uname).update(pwd=pwd)
-    return HttpResponseRedirect('/login/')
+    return HttpResponseRedirect('/index/login/')
 
 
 def MessageView(request):
